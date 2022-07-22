@@ -18,6 +18,8 @@ import { RecuperarPasswordComponent } from './components/recuperar-password/recu
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 import { environment } from 'src/environments/environment';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { InicioJuegoComponent } from './components/inicio-juego/inicio-juego.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { environment } from 'src/environments/environment';
     RegistrarUsuarioComponent,
     VerificarCorreoComponent,
     RecuperarPasswordComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AdministradorComponent,
+    InicioJuegoComponent
   ],
   imports: [
     BrowserModule,
