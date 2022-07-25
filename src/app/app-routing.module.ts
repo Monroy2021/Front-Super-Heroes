@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { InicioJuegoComponent } from './components/inicio-juego/inicio-juego.component';
 import { LoginComponent } from './components/login/login.component';
 import { RecuperarPasswordComponent } from './components/recuperar-password/recuperar-password.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
@@ -13,11 +14,12 @@ const routes: Routes = [
   { path: 'verificar-correo', component: VerificarCorreoComponent },
   { path: 'recuperar-password', component: RecuperarPasswordComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'inicio-juego', component: InicioJuegoComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
