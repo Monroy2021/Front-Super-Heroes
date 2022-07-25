@@ -5,6 +5,7 @@ import { InicioJuegoComponent } from './components/inicio-juego/inicio-juego.com
 import { LoginComponent } from './components/login/login.component';
 import { RecuperarPasswordComponent } from './components/recuperar-password/recuperar-password.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { TableroComponent } from './components/tablero/tablero.component';
 import { VerificarCorreoComponent } from './components/verificar-correo/verificar-correo.component';
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'verificar-correo', component: VerificarCorreoComponent },
   { path: 'recuperar-password', component: RecuperarPasswordComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'inicio-juego', component: InicioJuegoComponent },
+  { path: 'inicio-juego', component: InicioJuegoComponent },  
+  { path: 'tablero', component: TableroComponent }, 
+
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
