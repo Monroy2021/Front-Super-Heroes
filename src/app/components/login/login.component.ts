@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.loginUsuario = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-    })
+    });
   }
 
   ngOnInit(): void {}
@@ -34,15 +34,18 @@ export class LoginComponent implements OnInit {
     const password = this.loginUsuario.value.password;
 
     this.loading = true;
-    this.afAuth.signInWithEmailAndPassword(email, password).then((user) => {
-      if(user.user?.emailVerified) {
-        this.router.navigate(['/dashboard']);
-      } else {
-        this.router.navigate(['/verificar-correo']);
-      }
-    }).catch((error) => {
-      this.loading = false;
-      this.toastr.error(this.firebaseError.codeError(error.code), 'Error');
-    })
+    this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        if (user.user?.emailVerified) {
+          this.router.navigate(['/inicio-juego']);
+        } else {
+          this.router.navigate(['/verificar-correo']);
+        }
+      })
+      .catch((error) => {
+        this.loading = false;
+        this.toastr.error(this.firebaseError.codeError(error.code), 'Error');
+      });
   }
 }

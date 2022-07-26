@@ -8,11 +8,11 @@ import { CartasTablero } from '../../CartasTablero';
 })
 export class TableroComponent implements OnInit {
   CARTATABLERO: CartasTablero[] = [
-    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/0BF.jpg' },
-    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/0E0.jpg' },
-    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/1AE.jpg' },
-    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/1DF.jpg' },
-    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/1F4.jpg' },
+    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/carta-oculta.jpg' },
+    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/carta-oculta.jpg' },
+    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/carta-oculta.jpg' },
+    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/carta-oculta.jpg' },
+    { id: 'fhfghfghytuj', url: '../../../assets/img/heroes/carta-oculta.jpg' },
   ];
   // cartaTablero: CartasTablero = {
   //   id: 'fhfghfghytuj',

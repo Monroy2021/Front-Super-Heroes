@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { InicioJuegoComponent } from './components/inicio-juego/inicio-juego.component';
 import { TableroComponent } from './components/tablero/tablero.component';
+import { JugadorComponent } from './components/jugador/jugador.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TableroComponent } from './components/tablero/tablero.component';
     SpinnerComponent,
     AdministradorComponent,
     InicioJuegoComponent,
-    TableroComponent
+    TableroComponent,
+    JugadorComponent
   ],
   imports: [
     BrowserModule,
