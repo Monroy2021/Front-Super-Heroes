@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { url } from 'inspector';
 
 
 @Injectable({
@@ -26,8 +27,10 @@ export class JugadorService {
 
   }
 
-  listarJugador(id: string) {
+  listarJugador(id: string): Observable<Jugador> {
 
+    const url = `${this.jugadorUrl}/listar/${id}`;
+    return this.http.get<Jugador>(url);
 
   }
 
