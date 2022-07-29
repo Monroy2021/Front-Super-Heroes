@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/interface/usuario';
 import { UsuarioService } from 'src/app/services/usuario-service/usuario.service';
 
@@ -8,9 +9,15 @@ import { UsuarioService } from 'src/app/services/usuario-service/usuario.service
   styleUrls: ['./inicio-juego.component.css'],
 })
 export class InicioJuegoComponent implements OnInit {
+  formJugador: FormGroup;
   usuarios!: Usuario[];
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuarioService: UsuarioService, private fb: FormBuilder) {
+    this.formJugador = this.fb.group({
+      identificador: ['', [Validators.required]],
+      alias: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     this.getUsuarios();
@@ -23,4 +30,11 @@ export class InicioJuegoComponent implements OnInit {
   }
 
   email = localStorage.getItem('email');
+
+  crearJugador() {
+    const identificador = this.formJugador.value.identificador;
+    const alias = this.formJugador.value.alias;
+    console.log(identificador);
+    console.log(alias);
+  }
 }

@@ -5,10 +5,14 @@
         <div class="col-md-12 d-flex justify-content-center">
           <h2 class="m-5 subtitulos">Juego de cartas heroes marvel</h2>
         </div>
-        <form class="row d-flex justify-content-center">
+        <form
+          class="row d-flex justify-content-center"
+          (ngSubmit)="crearJugador()"
+          [formGroup]="formJugador"
+        >
           <div class="row">
             <div class="col-sm-5 d-flex justify-content-end">
-              <label for="exampleInputEmail1" class="form-label">Tú id:</label>
+              <label for="" class="form-label">Tú id:</label>
             </div>
             <div class="col-sm-5 mb-4" *ngFor="let usuario of usuarios">
               <div *ngIf="usuario.email == email">
@@ -17,6 +21,7 @@
                   class="form-control"
                   placeholder="id"
                   value="{{ usuario.id }}"
+                  name="identificador"
                 />
               </div>
             </div>
@@ -28,22 +33,36 @@
               >
             </div>
             <div class="col-sm-5 mb-5">
-              <input type="text" class="form-control" placeholder="jugador" />
+              <input
+                type="text"
+                class="form-control"
+                formControlName="alias"
+                placeholder="jugador"
+              />
             </div>
           </div>
-          <div class="row">
+          <!-- <div class="row"> 
             <div class="col-sm-5 d-flex justify-content-end">
               <label for="exampleInputEmail1" class="form-label"
-                >Número de jugadores:</label
+                >Con quien quieres jugar:</label
               >
             </div>
             <div class="col-sm-5 mb-5">
-              <input type="number" max="5" min="1" class="form-control" />
+              <select name="jugadores" id="jugadores" class="form-select">
+                <ng-container *ngFor="let usuario of usuarios">
+                  <option
+                    *ngIf="usuario.email != email"
+                    value="{{ usuario.id }}"
+                  >
+                    {{ usuario.email }}
+                  </option>
+                </ng-container>
+              </select>
             </div>
-          </div>
+          </div>-->
           <div class="row">
             <div class="col-sm-12 d-flex justify-content-center mb-3">
-              <button type="button" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary">
                 Entrar a la sala
               </button>
             </div>
