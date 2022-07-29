@@ -8,16 +8,27 @@
         <form class="row d-flex justify-content-center">
           <div class="row">
             <div class="col-sm-5 d-flex justify-content-end">
+              <label for="exampleInputEmail1" class="form-label">Tú id:</label>
+            </div>
+            <div class="col-sm-5 mb-4" *ngFor="let usuario of usuarios">
+              <div *ngIf="usuario.email == email">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="id"
+                  value="{{ usuario.id }}"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 d-flex justify-content-end">
               <label for="exampleInputEmail1" class="form-label"
                 >Digite tu alias:</label
               >
             </div>
             <div class="col-sm-5 mb-5">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="jugador"
-              />
+              <input type="text" class="form-control" placeholder="jugador" />
             </div>
           </div>
           <div class="row">
@@ -31,8 +42,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-12 d-flex justify-content-center  mb-3">
-              <button type="button" class="btn btn-primary"> Entrar a la sala</button>
+            <div class="col-sm-12 d-flex justify-content-center mb-3">
+              <button type="button" class="btn btn-primary">
+                Entrar a la sala
+              </button>
             </div>
           </div>
         </form>

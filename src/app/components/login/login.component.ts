@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Usuario } from 'src/app/interface/usuario';
 import { FirebaseCodeErrorService } from 'src/app/services/firebase-code-error.service';
 
 @Component({
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
         if (user.user?.emailVerified) {
+          localStorage.setItem('email', email);
           this.router.navigate(['/inicio-juego']);
         } else {
           this.router.navigate(['/verificar-correo']);

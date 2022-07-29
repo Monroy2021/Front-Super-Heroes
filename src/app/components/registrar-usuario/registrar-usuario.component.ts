@@ -4,6 +4,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FirebaseCodeErrorService } from 'src/app/services/firebase-code-error.service';
+import { UsuarioService } from 'src/app/services/usuario-service/usuario.service';
+import { Usuario } from 'src/app/interface/usuario';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -19,9 +21,11 @@ export class RegistrarUsuarioComponent implements OnInit {
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
     private router: Router,
-    private firebaseError: FirebaseCodeErrorService
+    private firebaseError: FirebaseCodeErrorService,
+    private usuarioService: UsuarioService
   ) {
     this.registrarUsuario = this.fb.group({
+      nombre: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       repetirPassword: ['', Validators.required],
@@ -31,6 +35,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   ngOnInit(): void {}
 
   registrar() {
+    const nombre = this.registrarUsuario.value.nombre;
     const email = this.registrarUsuario.value.email;
     const password = this.registrarUsuario.value.password;
     const repetirPassowrd = this.registrarUsuario.value.repetirPassword;
@@ -48,6 +53,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
+        this.registrarUsuarioDb(nombre, email);
         this.verificarCorreo();
       })
       .catch((error) => {
@@ -66,5 +72,11 @@ export class RegistrarUsuarioComponent implements OnInit {
         );
         this.router.navigate(['/login']);
       });
+  }
+
+  registrarUsuarioDb(nombre: String, email: String) {
+    this.usuarioService
+      .saveUsuario({ nombre, email } as Usuario)
+      .subscribe((usuario) => console.log(usuario));
   }
 }
