@@ -19,6 +19,6 @@ export class JugadorComponent implements OnInit {
   ngOnInit(): void {}
 
   myPrueba() {
-    console.log('funciona');
+    console.log('funciona prueba 2');
   }
 }
